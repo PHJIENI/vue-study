@@ -1,5 +1,10 @@
+import axios from 'axios'
 import { createApp } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
+import router from "./route"
 
-createApp(App).mount('#app')
+const app = createApp(App);
+app.config.globalProperties.$axios = axios;
+app.use(router)
+app.mount('#app')
